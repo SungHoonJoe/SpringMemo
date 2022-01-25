@@ -18,7 +18,7 @@
   <section class="d-flex justify-content-center">
   <form id="loginForm">
   <div class="login-box my-5">
-     <div class="display-4">로그인</div>
+     <div class="display-4 text-center">로그인</div>
      <!--  아이디, 패스워드, 패스워드 확인, 이름, 이메일 -->
      <input type="text" class="form-control mt-3" placeholder="아이디" id="loginIdInput">
      <input type="password" class="form-control mt-3" placeholder="비밀번호" id="passwordInput">
