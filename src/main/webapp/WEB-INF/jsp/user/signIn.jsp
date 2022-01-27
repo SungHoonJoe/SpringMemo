@@ -37,54 +37,53 @@
   
   
   </div>
+  
   <script>
-   $(document).ready(function(){
-	   
-	   $("#loginForm").on("submit",function(e) {
-		   e.preventDefault();
-		  
-		   
-		   var loginId = $("#loginIdInput").val();
-		   var password = $("#passwordInput").val();
-		  
-		   if(loginId == ""){
-			   alert("아이디를 입력하시오");
-			   return;
-		   }
-		   if(password == ""){
-			   alert("비밀번호를 입력하시오");
-			   return;
-		   }
-		   
-		   $.ajax({
-			   type:"post",
-			   url: "/user/sign_in",
-			   data:{"loginId":loginId, "password":password},
-			   success:function(data){
-				   if(data.result=="success"){
-					   // 로그인 화면 이동
-					  
-					   location.href="/post/list_view";
-					   alert("로그인 성공");
-				   }else{
-					   alert("아이디 혹은 비밀번호를 확인하세요");
-				   }
-				   
-			   },
-			   error:function(){
-				   alert("에러 발생");
-			   }
-			   
-		   });
-		   
+		$(document).ready(function() {
+			$("#loginForm").on("submit", function(e) {
+				e.preventDefault();
+				
+				var loginId = $("#loginIdInput").val();
+				var password = $("#passwordInput").val();
+				
+				if(loginId == "") {
+					 alert("아이디를 입력하세요");
+					 return ;
+				}
+				
+				if(password == "") {
+					alert("비밀번호를 입력하세요");
+					return ;
+				}
+				
+				$.ajax({
+					type:"post",
+					url:"/user/sign_in",
+					data:{"loginId":loginId, "password":password},
+					success:function(data) {
+						if(data.result == "success") {
+							location.href="/post/list_view";
+						} else {
+							alert("아이디/비밀번호를 확인하세요");
+						}
+						
+					},
+					error:function() {
+						alert("에러발생");
+					}
+				});
+				
+			});
 			
-	   });
-	   
-   });
+		});
+	</script>
+  
+  
+  
    
    
   
-  </script>
+ 
 
 </body>
 </html>

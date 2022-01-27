@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>메모리스트</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -22,52 +22,10 @@
   
   
   </div>
-  <script>
-   $(document).ready(function(){
-	   
-	   $("#loginForm").on("submit",function(e) {
-		   e.preventDefault();
-		  
-		   
-		   var loginId = $("#loginIdInput").val();
-		   var password = $("#passwordInput").val();
-		  
-		   if(loginId == ""){
-			   alert("아이디를 입력하시오");
-			   return;
-		   }
-		   if(password == ""){
-			   alert("비밀번호를 입력하시오");
-			   return;
-		   }
-		   
-		   $.ajax({
-			   type:"post",
-			   url: "/user/sign_in",
-			   data:{"loginId":loginId, "password":password},
-			   success:function(data){
-				   if(data.result=="success"){
-					   // 로그인 화면 이동
-					  
-					   location.href="/post/list_view";
-					   alert("로그인 성공");
-				   }else{
-					   alert("아이디 혹은 비밀번호를 확인하세요");
-				   }
-				   
-			   },
-			   error:function(){
-				   alert("에러 발생");
-			   }
-			   
-		   });
-		   
-			
-	   });
-	   
-   });
+ 
+  
    
-   </script>
+   
 
 </body>
 </html>
