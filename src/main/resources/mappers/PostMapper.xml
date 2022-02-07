@@ -5,41 +5,41 @@
 <mapper namespace="com.example.ex.post.dao.PostDAO">
 
 	<insert id="insertPost" parameterType="map">
-	   INSERT INTO `post`
-	   (
-	    `userId`
-	    ,`subject`
-	    ,`content`
-	    ,`createdAt`
-	    ,`updatedAt`
-	   
-	   )VALUES (
-	      #{userId}
-	      ,#{subject}
-	      ,#{content}
-	      ,now()
-	      ,now()
-	   )
-	   
-
-
+		INSERT INTO `post` 
+		(
+			`userId`
+			, `subject`
+			, `content`
+			, `imagePath`
+			, `createdAt`
+			, `updatedAt`
+		) VALUES (
+			#{userId}
+			, #{subject}
+			, #{content}
+			, #{imagePath}
+			, now()
+			, now()
+		)
+	
 	</insert>
 	
-	<select id="selectPostList" parameterType="int" resultType="com.example.ex.post.model.Post">
-	  SELECT 
-	        `id`
-	        ,`userId`
-	        ,`subject`
-	        ,`content`
-	        ,`imagePath`
-	        ,`createdAt`
-	       , `updatedAt`
-	 FROM
-	     `post`
-	 WHERE
-	      `userId` = #{userId}
-	 ORDER BY `id` DESC
-	   
+	<select id="selectPostList" resultType="com.marondal.memo.post.model.Post"
+	parameterType="int">
+	
+		SELECT 
+			`id`
+			, `userId`
+			, `subject`
+			, `content`
+			, `imagePath`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`post`
+		WHERE 
+			`userId` = #{userId}
+		ORDER BY `id` DESC
 	
 	</select>
 	
