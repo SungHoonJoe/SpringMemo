@@ -1,6 +1,8 @@
 package com.example.ex.common;
 
 import java.io.File;
+
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileManagerService {
 	
-	public final static String FILE_UPLOAD_PATH = "C:\\image";
+	public final static String FILE_UPLOAD_PATH = "C:\\image/";
 	
 	private static Logger logger = LoggerFactory.getLogger(FileManagerService.class);
 	
@@ -67,6 +69,11 @@ public class FileManagerService {
 		// 삭제할 파일 경로
 		// filePath : /images/2_98948598495/test.png
 		// 실제 파일 경로 C:\\image\\2_98948598495/test.png
+		if(filePath == null) {
+			logger.error("FileManagerService::removeFile - 삭제할 파일 없음");
+			return ;
+		}
+		
 		
 		String realFilePath = FILE_UPLOAD_PATH + filePath.replace("/images/", "");
 		

@@ -24,7 +24,7 @@
 	
 	</insert>
 	
-	<select id="selectPostList" resultType="com.marondal.memo.post.model.Post"
+	<select id="selectPostList" resultType="com.example.ex.post.model.Post"
 	parameterType="int">
 	
 		SELECT 
